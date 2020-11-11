@@ -9,7 +9,7 @@ services:
     environment:
       VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
       APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
-      depends_on:
+    depends_on:
         - db
   db:
     container_name: ${SUBDOMAIN}_db
