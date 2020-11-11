@@ -1,0 +1,38 @@
+version: "2"
+services:
+  php:
+    container_name: ${SUBDOMAIN}_php
+    image: jwccmatsubara/php:latest
+    restart: always
+    volumes:
+      - web_storage:/volume
+    environment:
+      VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
+      APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
+      depends_on:
+        - db
+    networks:
+      - frontend
+  db:
+    container_name: ${SUBDOMAIN}_db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      TZ: 'Asia/Tokyo'
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - /var/lib/mysql
+    expose:
+      - 3306
+    networks:
+      - backend
+
+networks:
+  frontend:
+    external: true
+  backend:
+    external: true
