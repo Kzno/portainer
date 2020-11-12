@@ -10,6 +10,7 @@ services:
       VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
       APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
       SUBDOMAIN: ${SUBDOMAIN}
+      DOMAIN: ${DOMAIN}
     depends_on:
       - php-fpm
   php-fpm:
