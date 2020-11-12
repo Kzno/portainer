@@ -5,7 +5,7 @@ services:
     image: jwccmatsubara/apache:latest
     restart: always
     volumes:
-      - ./www/html:/volume
+      - web_storage:/volume
     depends_on:
       - php-fpm
     environment:
@@ -17,7 +17,7 @@ services:
     image: jwccmatsubara/php-fpm:latest
     restart: always
     volumes:
-      - web_storage:/volume
+      - web_storage:/var/www/html
     depends_on:
       - db
   db:
