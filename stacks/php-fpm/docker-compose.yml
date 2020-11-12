@@ -8,9 +8,9 @@ services:
       - web_storage:/volume
     environment:
       VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
-      APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
       SUBDOMAIN: ${SUBDOMAIN}
-      DOMAIN: ${DOMAIN}
+      APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
+      PHP_DOCUMENT_ROOT: /var/www/html/${SUBDOMAIN}.${DOMAIN}/html
     depends_on:
       - php-fpm
   php-fpm:
