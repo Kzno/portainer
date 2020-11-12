@@ -6,12 +6,12 @@ services:
     restart: always
     volumes:
       - web_storage:/volume
-    depends_on:
-      - php-fpm
     environment:
       VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
       APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
       SUBDOMAIN: ${SUBDOMAIN}
+    depends_on:
+      - php-fpm
   php-fpm:
     container_name: ${SUBDOMAIN}_php-fpm
     image: jwccmatsubara/php-fpm:latest
