@@ -2,7 +2,7 @@ version: "2"
 services:
   apache:
     container_name: ${SUBDOMAIN}_apache
-    build: jwccmatsubara/apache:latest
+    image: jwccmatsubara/apache:latest
     restart: always
     volumes:
       - ./www/html:/volume
