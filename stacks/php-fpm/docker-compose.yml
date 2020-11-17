@@ -9,7 +9,7 @@ services:
     environment:
       VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
       SUBDOMAIN: ${SUBDOMAIN}
-      APACHE_DOCUMENT_ROOT: /volume/${SUBDOMAIN}.${DOMAIN}/html
+      APACHE_DOCUMENT_ROOT: /var/www/html/${SUBDOMAIN}.${DOMAIN}/html
       PHP_DOCUMENT_ROOT: /var/www/html/${SUBDOMAIN}.${DOMAIN}/html
     depends_on:
       - php-fpm
