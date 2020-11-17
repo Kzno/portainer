@@ -5,7 +5,7 @@ services:
     image: jwccmatsubara/apache:latest
     restart: always
     volumes:
-      - web_storage:/volume
+      - web_storage:/var/www/html
     environment:
       VIRTUAL_HOST: ${SUBDOMAIN}.${DOMAIN}
       SUBDOMAIN: ${SUBDOMAIN}
