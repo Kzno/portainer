@@ -17,7 +17,7 @@ services:
     image: jwccmatsubara/php-fpm:latest
     restart: always
     environment:
-      PHP_CHROOT: /var/www/html/${SUBDOMAIN}.${DOMAIN}
+      PHP_CHROOT: /var/www/html/${SUBDOMAIN}.${DOMAIN}/html
     volumes:
       - web_storage:/var/www/html
     depends_on:
